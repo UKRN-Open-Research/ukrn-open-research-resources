@@ -3,22 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve && netlify-lambda serve src/lambda",
+    "build": "netlify-lambda build src/lambda && vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@babel/runtime": "^7.13.10",
+    "@vue/cli": "^4.5.12",
+    "buefy": "^0.9.4",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "dotenv": "^8.2.0",
+    "google-spreadsheet": "^3.1.15",
+    "sass": "^1.32.8",
+    "sass-loader": "^10.1.1",
+    "vue": "^2.6.11",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.13.10",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "netlify-lambda": "^2.0.3",
+    "vue-cli-plugin-netlify-lambda": "^0.1.1",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.44.2"
   },
   "eslintConfig": {
     "root": true,
@@ -36,7 +48,6 @@
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions",
-    "not dead"
+    "last 2 versions"
   ]
 }
