@@ -8,16 +8,19 @@
     >
       <template #trigger="props">
         <header class="card-header has-background-light">
-          <h1 class="card-header-title">
-            <span class="provider">{{ resource.Resource_Provider }} - </span>
-            <strong>{{ resource.Resource_Name }}</strong>
-            <a class="card-header-icon"
-               :href="resource.Resource_Reference"
-               target="_blank"
-            >
-              <b-icon icon="open-in-new"/>
-            </a>
-          </h1>
+          <div class="text">
+            <h1 class="card-header-title">
+              <span class="provider has-text-grey-light">{{ resource.Resource_Provider }}</span>
+              <strong>{{ resource.Resource_Name }}</strong>
+              <a class="card-header-icon"
+                 :href="resource.Resource_Reference"
+                 target="_blank"
+              >
+                <b-icon icon="open-in-new"/>
+              </a>
+            </h1>
+            <p>{{ resource.Description }}</p>
+          </div>
           <a class="card-header-icon">
             <b-icon :icon="props.open ? 'menu-up' : 'menu-down'"/>
           </a>
@@ -25,14 +28,12 @@
       </template>
 
       <div class="card-content body">
-        <h2>Description</h2>
-        <p>{{ resource.Description }}</p>
         <div class="tags info"
              v-for="X in ['Resource_Type', 'Topics', 'Subtopics', 'Discipline', 'Subdiscipline']"
              :key="X"
         >
           <div v-if="resource[X].length">
-            <h2>{{ X }}</h2>
+            <h2>{{ X.replace(/_/g, ' ') }}</h2>
             <b-button
                     v-for="x in resource[X]"
                     :key="`${X}_${x}`"
@@ -48,7 +49,7 @@
              :key="X"
         >
           <div v-if="resource[X].length">
-            <h2>{{ X }}</h2>
+            <h2>{{ X.replace(/_/g, ' ') }}</h2>
             <ul>
               <li v-for="x in resource[X]"
                  :key="`${X}_${x}`"
@@ -64,6 +65,9 @@
             <li v-for="x in resource['Internal_Links']"
                   :key="x"
             >
+              <span class="provider has-text-grey-light">
+                {{ $store.state.items.filter(i => i.Id === x)[0].Resource_Provider }}
+              </span>
               {{ $store.state.items.filter(i => i.Id === x)[0].Resource_Name }}
             </li>
           </ul>
@@ -92,15 +96,37 @@ export default {
     font-weight: normal;
     margin-right: .25em;
   }
-  .body {
+  .card-header {
     display: flex;
-    flex-wrap: wrap;
-    h2, p {width: 100%;}
+    justify-content: space-between;
+    align-items: center;
+    padding-left: .5em;
+    .card-header-title {
+      padding: 0;
+    }
+  }
+  .body {
+    display: block;
+    padding: .5em;
+    h2 {
+      display: inline-block;
+      margin-right: 1em;
+      font-weight: bold;
+    }
     .info {
       display: flex;
       flex-wrap: wrap;
-      max-width: 50%;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0
     }
+    ul {
+      width: 100%;
+    }
+  }
+  .card-footer {
+    padding: .5em 1em 0 0;
+    justify-content: flex-end;
   }
   button {
     margin: .1em;

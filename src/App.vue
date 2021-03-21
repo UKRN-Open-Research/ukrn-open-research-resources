@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <div v-if="!$store.state.items.length" class="retry">
-      No items found.
-      <b-button icon-left="retry" label="Retry"/>
+      <b-button label="Load resource list"/>
     </div>
     <div v-else class="items">
         <div class="filters">
@@ -95,7 +94,19 @@ function match(a, b) {
 
 <style lang="scss">
 #app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
   margin-top: 1em;
+}
+.retry {
+  width: 100%;
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .items {
   margin: 0 .5em;
@@ -111,7 +122,7 @@ function match(a, b) {
   .results {
     grid-column: 2;
     div {
-      margin: .5em auto;
+      margin: .5em 0;
     }
   }
   .taginput-container {
