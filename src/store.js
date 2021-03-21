@@ -12,15 +12,28 @@ const store = new Vuex.Store({
         items_loading: false
     },
     mutations: {
-        addFilter(state, value) {
-            if(!value.field)
+        addFilter(state, {field, value}) {
+            if(!field)
                 throw new Error(`Filter requires a name.`);
-            console.log(value)
-            state.filters = [...state.filters.filter(f => f.field !== value.field)];
-            if(value.value.length)
-                state.filters = [
-                    ...state.filters, {field: value.field, value: value.value}
-                ]
+            console.log({field, value})
+            state.filters = [...state.filters.filter(f => f.field !== field)];
+            if(value.length)
+                state.filters = [...state.filters, {field, value}]
+        },
+        toggleFilterTag(state, {field, value}) {
+            const existing = state.filters.filter(f => f.field === field);
+            if(existing.length) {
+                if(!existing[0].value.includes(value))
+                    existing[0].value.push(value);
+                else {
+                    if(existing[0].value.length === 1)
+                        state.filters = state.filters.filter(f => f.field !== field);
+                    else
+                        existing[0].value = existing[0].value.filter(v => v !== value);
+                }
+            } else {
+                state.filters.push({field, value: [value]});
+            }
         },
         addItem(state, value) {
             state.items.push(value);

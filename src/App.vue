@@ -5,7 +5,8 @@
       <b-button icon-left="retry" label="Retry"/>
     </div>
     <div v-else class="items">
-        <div class="sidebar">
+        <div class="filters">
+          <header><h1>Filters</h1></header>
           <FieldFilter field="Resource_Name" type="input"/>
           <FieldFilter field="Discipline" type="checkbox"/>
           <FieldFilter field="Subdiscipline" type="tag"/>
@@ -14,33 +15,9 @@
           <FieldFilter field="Resource_Type" type="checkbox"/>
           <FieldFilter field="Resource_Provider" type="tag"/>
           <FieldFilter field="Description" type="input"/>
-          <b-field>
-            Last updated
-          </b-field>
-          <b-field>
-            External_Links
-          </b-field>
-          <b-field>
-            Id
-          </b-field>
-          <b-field>
-            Internal_Links
-          </b-field>
-          <b-field>
-            Resource_Reference
-          </b-field>
-          <b-field>
-            Subtopics_csv
-          </b-field>
-          <b-field>
-            Topics_csv
-          </b-field>
-          <b-field>
-            Workshop_Lessons_csv
-          </b-field>
         </div>
       <div class="results">
-        RESULTS
+        <header><h1>Resources</h1></header>
         <Resource v-for="r in filteredResources"
                   :key="r.Resource_Reference"
                   :resource="r"
@@ -117,10 +94,25 @@ function match(a, b) {
 </script>
 
 <style lang="scss">
+#app {
+  margin-top: 1em;
+}
 .items {
-  display: flex;
+  margin: 0 .5em;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-column-gap: 1em;
+  .filters {
+    font-size: .8em;
+    .autocomplete.control {
+      width: 100%;
+    }
+  }
   .results {
-    width: 75%;
+    grid-column: 2;
+    div {
+      margin: .5em auto;
+    }
   }
   .taginput-container {
     display: flex;
