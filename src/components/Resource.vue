@@ -19,7 +19,7 @@
                 <b-icon icon="open-in-new"/>
               </a>
             </h1>
-            <p>{{ resource.Description }}</p>
+            <p v-if="resource.Description !== ''">{{ resource.Description }}</p>
           </div>
           <a class="card-header-icon">
             <b-icon :icon="props.open ? 'menu-up' : 'menu-down'"/>
@@ -107,6 +107,7 @@ export default {
     .card-header-title {
       padding: 0;
     }
+    p {margin-bottom: .5em;}
   }
   .body {
     display: block;
