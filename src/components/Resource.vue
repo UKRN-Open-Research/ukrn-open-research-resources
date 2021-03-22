@@ -74,7 +74,7 @@
         </div>
       </div>
       <footer class="card-footer">
-        Last updated {{ resource.Accessed_Date }}
+        Last updated {{ resource.Last_Updated_Date }}
       </footer>
     </b-collapse>
 
