@@ -73,7 +73,7 @@
           </ul>
         </div>
       </div>
-      <footer class="card-footer">
+      <footer class="card-footer has-background-light">
         Last updated {{ resource.Accessed_Date }}
       </footer>
     </b-collapse>
