@@ -1,13 +1,13 @@
 <template>
   <section>
     <b-collapse
-            class="resource card"
+            class="resource card has-background-light"
             :open="false"
             animation="slide"
             aria-id="contentIdForA11y1"
     >
       <template #trigger="props">
-        <header class="card-header has-background-light">
+        <header class="card-header">
           <div class="text">
             <h1 class="card-header-title">
               <span class="provider has-text-grey-light">{{ resource.Resource_Provider }}</span>
@@ -27,7 +27,7 @@
         </header>
       </template>
 
-      <div class="card-content body">
+      <div class="card-content body has-background-white">
         <div class="tags info"
              v-for="X in ['Resource_Type', 'Topics', 'Subtopics', 'Discipline', 'Subdiscipline']"
              :key="X"
@@ -73,7 +73,7 @@
           </ul>
         </div>
       </div>
-      <footer class="card-footer has-background-light">
+      <footer class="card-footer">
         Last updated {{ resource.Accessed_Date }}
       </footer>
     </b-collapse>
@@ -92,6 +92,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+  section {
+    margin-bottom: 1.5em;
+  }
   .provider {
     font-weight: normal;
     margin-right: .25em;

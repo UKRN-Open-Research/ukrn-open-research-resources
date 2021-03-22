@@ -121,9 +121,6 @@ function match(a, b) {
   }
   .results {
     grid-column: 2;
-    div {
-      margin: .5em 0;
-    }
   }
   .taginput-container {
     display: flex;
