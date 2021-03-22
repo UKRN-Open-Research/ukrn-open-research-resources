@@ -20,6 +20,7 @@ const store = new Vuex.Store({
             if(value.length)
                 state.filters = [...state.filters, {field, value}]
         },
+        removeFilters(state) {state.filters = [];},
         toggleFilterTag(state, {field, value}) {
             const existing = state.filters.filter(f => f.field === field);
             if(existing.length) {

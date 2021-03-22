@@ -5,7 +5,18 @@
     </div>
     <div v-else class="items">
         <div class="filters">
-          <header><h1>Filters</h1></header>
+          <header>
+            <h1>Filters</h1>
+            <b-button
+                    v-if="$store.state.filters.length > 0"
+                    class="clear-filters"
+                    icon-left="close"
+                    type="is-light is-info"
+                    size="is-small"
+                    label="remove all filters"
+                    @click="$store.commit('removeFilters')"
+            />
+          </header>
           <FieldFilter field="Resource_Name" type="input"/>
           <FieldFilter field="Discipline" type="checkbox"/>
           <FieldFilter field="Subdiscipline" type="tag"/>
@@ -113,8 +124,18 @@ function match(a, b) {
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-column-gap: 1em;
+  width: 100%;
   .filters {
     font-size: .8em;
+    header {
+      display: flex;
+      justify-content: space-between;
+      height: 2em;
+      button {
+        align-items: center;
+        line-height: 100%;
+      }
+    }
     .autocomplete.control {
       width: 100%;
     }
