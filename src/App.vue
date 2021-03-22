@@ -109,7 +109,7 @@ function match(a, b) {
   align-items: center;
   justify-content: center;
   min-height: 60vh;
-  margin-top: 1em;
+  margin: 1em auto;
 }
 .retry {
   width: 100%;

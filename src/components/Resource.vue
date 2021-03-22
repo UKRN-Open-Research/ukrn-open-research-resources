@@ -97,7 +97,7 @@ export default {
   }
   .provider {
     font-weight: normal;
-    margin-right: .25em;
+    margin-right: 1em;
   }
   .card-header {
     display: flex;
@@ -114,7 +114,7 @@ export default {
     padding: .5em;
     h2 {
       display: inline-block;
-      margin-right: 1em;
+      margin: 1em;
       font-weight: bold;
     }
     .info {
