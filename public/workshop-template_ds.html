@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/assets/img/favicon/cropped-UKRN-Logo-150-32x32.png" sizes="32x32" />
+    <link rel="icon" href="/assets/img/favicon/cropped-UKRN-Logo-150-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/assets/img/favicon/cropped-UKRN-Logo-150-180x180.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <title>UKRN Open Research Data Sharing Workshop Structure</title>
+    <style type="text/css">
+        #ukrn {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: .5em 0;
+            text-align: center;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        }
+        #ukrn img {height: 4em;}
+        #ukrn > h1 {font-weight: bold; font-size: 2em;}
+
+        #section-list {
+            width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                    "motivation rights application"
+                    "motivation rights application"
+                    "motivation rights application"
+                    "how citing application"
+                    "how citing finish";
+            justify-content: space-evenly;
+            margin: 1em auto;
+        }
+        section.card {
+            margin: .5em;
+            height: min-content;
+            border-radius: .5em;
+            background-color: #13a89e47;
+        }
+        .card > header > h1 {
+            font-size: 1.2em;
+            margin-bottom: 0;
+        }
+        .card > .card-content {padding: 0 1em 1em 1em;}
+        .card-content h2 {
+            font-size: 1em;
+            font-weight: bold;
+        }
+        li.optional {opacity: .75;}
+    </style>
+</head>
+<body>
+<header id="ukrn">
+    <img src="/assets/img/UKRN-Logo-150.png" alt="UKRN Logo"/>
+    <h1>Open Research Data Sharing Workshop Structure</h1>
+</header>
+<article id="section-list" class="content">
+    <section class="card" style="grid-area: motivation">
+        <header>
+            <h1 class="card-header-title">
+                Motivation and Concerns
+            </h1>
+        </header>
+        <div class="card-content">
+            <p>
+                Begin your workshop with an introduction to what data sharing entails, any potential benefits or drawbacks.
+            </p>
+            <ol>
+                <li>
+                    <h2>Introduction and Discussion</h2>
+                    <p>
+                        Give an introduction to what data sharing is. It can be useful to add a discussion element to your workshop to gauge participants' understanding of data sharing.
+                    </p>
+                </li>
+                <li>
+                    <h2>Benefits of Data Sharing</h2>
+                    <p>
+                        Introduce some of the benefits of data sharing, including some selfish reasons to share your data.
+                    </p>
+                </li>
+                <li>
+                    <h2>Acknowledging concerns</h2>
+                    <p>
+                        Importantly, address the concerns that your participants have. Common concerns may include:
+                    </p>
+                    <ul>
+                        <li>Scooping further analysis</li>
+                        <li>Additional labour or time required</li>
+                        <li>Privacy/GDPR</li>
+                        <li>Licensing</li>
+                    </ul>
+                    <p>
+                        Reassure the participants of your workshop that it’s okay to be concerned about these topics, and that this workshop will help them overcome these concerns.
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="card" style="grid-area: rights">
+        <header>
+            <h1 class="card-header-title">
+                Rights and Licensing
+            </h1>
+        </header>
+        <div class="card-content">
+            <p>
+                The next section of your workshop should focus on rights, privacy concerns, and licensing of research data. The content should be specific to your participant’s data, e.g. if your workshop is for researchers not using human data, privacy may not be relevant.
+            </p>
+            <ol>
+                <li>
+                    <h2>Licensing</h2>
+                    <p>
+                        Everyone sharing data will have to consider how to license their data. You may want to introduce your workshop participants to Creative Commons licensing.
+                    </p>
+                </li>
+                <li class="optional">
+                    <h2>Privacy and GDPR</h2>
+                    <p>
+                        If your workshop participants typically work with human data, you may want to address how they can handle privacy or GDPR concerns relating to their data. This may include:
+                    </p>
+                    <ul>
+                        <li>Links to guidelines</li>
+                        <li>Guides to anonymising or pseudo-anonymising data</li>
+                    </ul>
+                    <p>
+                        Reassure the participants of your workshop that it’s okay to be concerned about these topics, and that this workshop will help them overcome these concerns.
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="card" style="grid-area: how">
+        <header>
+            <h1 class="card-header-title">
+                How to Share
+            </h1>
+        </header>
+        <div class="card-content">
+            <p>
+                In this section, you should walk your workshop participants through the process of sharing an example dataset.
+            </p>
+            <ol>
+                <li>
+                    <h2>‘Toy’ example</h2>
+                    <p>
+                        Select an example dataset that is relevant to your workshop participants to make sure they get the most use out of your example.
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="card" style="grid-area: citing">
+        <header>
+            <h1 class="card-header-title">
+                Citing Data
+            </h1>
+        </header>
+        <div class="card-content">
+            <p>
+                One of the benefits of sharing your data is that other scientists can use and cite it. Use this section of the workshop to explain how researchers should cite shared data.
+            </p>
+            <ol>
+                <li>
+                    <h2>Example</h2>
+                    <p>
+                        Use your toy example from above to demonstrate how to cite data.
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="card" style="grid-area: application">
+        <header>
+            <h1 class="card-header-title">
+                Practical Application
+            </h1>
+        </header>
+        <div class="card-content">
+            <p>
+                Use the final section of your workshop to walk your participants through how they can apply what they have learned to their own research workflows. Make sure to leave time for questions from participants, however, if participants have very long or specific questions, it may be best to contact them after the workshop with more support.
+            </p>
+            <ol>
+                <li>
+                    <h2>When will I sort out licensing?</h2>
+                    <p>
+                        Focus on how and at what point in their research workflow participants will decide how to separate public and private data, decide on the correct license, and remind themselves to do these tasks.
+                    </p>
+                </li>
+                <li>
+                    <h2>When will I share my data?</h2>
+                    <p>
+                        Focus on which point of their research workflow participants should start thinking about data sharing.
+                    </p>
+                </li>
+                <li>
+                    <h2>How will I share?</h2>
+                    <p>
+                        Focus on the logistics of sharing data, for instance, which repository will the participants use and how will they put it there (e.g. manual or automatic upload). Suggest repositories relevant to your workshop participants.
+                    </p>
+                </li>
+                <li>
+                    <h2>How do I get help?</h2>
+                    <p>
+                        Point participants towards places they can get help. Library services at the institution are often really keen to help - they just need to be asked!
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="card" style="grid-area: finish">
+        <header>
+            <h1 class="card-header-title">
+                Wrap up and Finish
+            </h1>
+        </header>
+        <div class="card-content">
+            <p>
+                Summarise what the participants should have learned in your workshop and finish up the session.
+            </p>
+        </div>
+    </section>
+</article>
+</body>
+</html>
