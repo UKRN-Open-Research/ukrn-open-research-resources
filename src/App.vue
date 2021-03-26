@@ -46,13 +46,22 @@ import FieldFilter
 
 export default {
   name: 'App',
+  data: function() {
+    return {
+      orderFunction: (a, b) => {
+        const x = a.Resource_Name.toLowerCase();
+        const y = b.Resource_Name.toLowerCase();
+        return x < y? -1 : x > y? 1 : 0;
+      }
+    }
+  },
   components: {
     FieldFilter,
     Resource
   },
   computed: {
     filteredResources() {
-      return this.$store.state.items.filter(i => {
+      const out = this.$store.state.items.filter(i => {
         let okay = true;
         this.$store.state.filters.forEach(f => {
           if(typeof i[f.field] === 'string') {
@@ -83,7 +92,9 @@ export default {
           }
         });
         return okay;
-      })
+      });
+      out.sort(this.orderFunction);
+      return out;
     }
   },
   mounted: function() {
