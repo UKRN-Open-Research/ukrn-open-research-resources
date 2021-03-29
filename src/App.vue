@@ -27,6 +27,19 @@
           <FieldFilter field="Description" type="input"/>
         </div>
       <div class="results">
+        <div class="sort-by">
+          <b-field label="Sort by" grouped horizontal>
+            <b-select v-model="sortBy" size="is-small">
+              <option v-for="r in ['Resource_Name', 'Resource_Provider']"
+                      :key="r"
+                      :value="r"
+              >{{ r.replace(/_/g, ' ') }}</option>
+            </b-select>
+            <b-checkbox v-model="reverse" size="is-small">
+              {{ reverse? 'Descending' : 'Ascending' }}
+            </b-checkbox>
+          </b-field>
+        </div>
         <header><h1>Resources</h1></header>
         <Resource v-for="r in filteredResources"
                   :key="r.Resource_Reference"
@@ -48,11 +61,8 @@ export default {
   name: 'App',
   data: function() {
     return {
-      orderFunction: (a, b) => {
-        const x = a.Resource_Name.toLowerCase();
-        const y = b.Resource_Name.toLowerCase();
-        return x < y? -1 : x > y? 1 : 0;
-      }
+      sortBy: 'Resource_Name',
+      reverse: false
     }
   },
   components: {
@@ -93,8 +103,17 @@ export default {
         });
         return okay;
       });
-      out.sort(this.orderFunction);
+      out.sort(this.orderFunction(this.sortBy));
+      if(this.reverse)
+        out.reverse();
       return out;
+    }
+  },
+  methods: {
+    orderFunction: field => (a, b) => {
+      const x = a[field].toLowerCase();
+      const y = b[field].toLowerCase();
+      return x < y? -1 : x > y? 1 : 0;
     }
   },
   mounted: function() {
