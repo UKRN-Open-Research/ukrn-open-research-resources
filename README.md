@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/608d28c1-597c-4437-9a68-d94077244ca4/deploy-status)](https://app.netlify.com/sites/nervous-payne-efa831/deploys)
+[![DOI](https://zenodo.org/badge/349752104.svg)](https://zenodo.org/badge/latestdoi/349752104) [![Netlify Status](https://api.netlify.com/api/v1/badges/608d28c1-597c-4437-9a68-d94077244ca4/deploy-status)](https://app.netlify.com/sites/nervous-payne-efa831/deploys)
 
 # UKRN Open Research Resources Browser
 
