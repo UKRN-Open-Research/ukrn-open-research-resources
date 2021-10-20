@@ -22,7 +22,8 @@
           <FieldFilter field="Subdiscipline" type="tag"/>
           <FieldFilter field="Topics" type="checkbox"/>
           <FieldFilter field="Subtopics" type="tag"/>
-          <FieldFilter field="Resource_Type" type="checkbox"/>
+          <FieldFilter field="Resource_Category" type="checkbox"/>
+          <FieldFilter field="Resource_Format" type="checkbox"/>
           <FieldFilter field="Resource_Provider" type="tag"/>
           <FieldFilter field="Description" type="input"/>
         </div>

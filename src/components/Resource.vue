@@ -29,7 +29,7 @@
 
       <div class="card-content body has-background-white">
         <div class="tags info"
-             v-for="X in ['Resource_Type', 'Topics', 'Subtopics', 'Discipline', 'Subdiscipline']"
+             v-for="X in ['Resource_Category', 'Resource_Format', 'Topics', 'Subtopics', 'Discipline', 'Subdiscipline']"
              :key="X"
         >
           <div v-if="resource[X].length">
