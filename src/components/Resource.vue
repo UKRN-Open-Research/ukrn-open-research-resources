@@ -2,7 +2,7 @@
   <section>
     <b-collapse
             class="resource card has-background-light"
-            :open="false"
+            v-model="expanded"
             animation="slide"
             aria-id="contentIdForA11y1"
     >
@@ -19,7 +19,7 @@
                 <b-icon icon="open-in-new"/>
               </a>
             </h1>
-            <p v-if="resource.Description !== ''">{{ resource.Description }}</p>
+            <p :class="expanded? 'expanded' : 'closed'" v-if="resource.Description !== ''">{{ resource.Description }}</p>
           </div>
           <a class="card-header-icon">
             <b-icon :icon="props.open ? 'menu-up' : 'menu-down'"/>
@@ -86,6 +86,11 @@ export default {
   name: 'Resource',
   props: {
     resource: {type: Object, required: true}
+  },
+  data: function() {
+    return {
+      expanded: false
+    }
   }
 }
 </script>
@@ -107,7 +112,16 @@ export default {
     .card-header-title {
       padding: 0;
     }
-    p {margin-bottom: .5em;}
+    p {
+      margin-bottom: .5em;
+      &.closed {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
   }
   .body {
     display: block;
